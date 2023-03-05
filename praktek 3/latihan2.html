@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kalkulator Sederhana</title>
+</head>
+<body>
+	<h1>Kalkulator Sederhana</h1>
+	<label>Bilangan 1:</label>
+	<!-- Membuat inputan textbox bilangan 1 yang akan di operasikan -->
+	<input type="text" id="bil1"><br>
+
+	<label>Bilangan 2:</label>
+	<!-- Membuat imputan texbot bilangan 2 yang akan dioperasikan -->
+	<input type="text" id="bil2"><br>
+
+	<!-- Membuat button operator dengan memanggil fungsi hitung jika diklik -->
+	<button onclick="hitung('+')"> + </button>
+	<button onclick="hitung('-')"> - </button>
+	<button onclick="hitung('*')"> X </button>
+	<button onclick="hitung('/')"> : </button><br>
+
+	<label>Hasil:</label>
+	<!-- Membuat text box hasil bilangan 1 dan 2 yang akan di operasikan-->
+	<input type="text" id="hasil"><br>
+
+	<script>
+		function hitung(operator) {
+			// getElementById digunakan untuk mengambil elemen HTML pada halaman web berdasarkan ID elemen
+			var bil1 = parseFloat(document.getElementById("bil1").value);
+			// parseFloat digunakan untuk mengubah string pada bil1 dan 2 menjadi float
+			var bil2 = parseFloat(document.getElementById("bil2").value);
+			var hasil;
+
+			// hitung hasil berdasarkan operator yang dipilih
+			switch (operator) {
+				case "+":
+					hasil = bil1 + bil2;
+					break;
+				case "-":
+					hasil = bil1 - bil2;
+					break;
+				case "*":
+					hasil = bil1 * bil2;
+					break;
+				case "/":
+					hasil = bil1 / bil2;
+					break;
+				default:
+					hasil = "Operator tidak valid.";
+			}
+			// tampilkan hasil pada text box hasil
+			document.getElementById("hasil").value = hasil;
+		}
+		/* document.lastModified adalah property bawaan pada objek document di JavaScript
+		 yang digunakan untuk mengembalikan tanggal dan waktu terakhir halaman web tersebut diubah.*/
+		document.write("Dimodifikasi terakhir pada " + document.lastModified);
+	</script>
+</body>
+</html>
